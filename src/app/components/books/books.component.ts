@@ -7,11 +7,11 @@ import { BOOKS } from 'src/app/mock-books';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
-  book: Book = {
-    id: 1,
-    author: 'HBR',
-    title: 'HBR at 100',
-  };
+  // book: Book = {
+  //   id: 1,
+  //   author: 'HBR',
+  //   title: 'HBR at 100',
+  // };
 
   books=BOOKS;
   selectedBook?: Book;
