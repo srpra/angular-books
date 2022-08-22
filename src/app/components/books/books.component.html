@@ -8,11 +8,13 @@
     </li>
 </ul>
 
-<h2>{{book.title}} details</h2>
-<h3>id: {{book.id}} </h3>
-<!-- <h3>title: {{book.title}}</h3>
-<h3>author: {{book.author}}</h3> -->
-<label for="author">Book author: </label>
-<input id="author" [(ngModel)]="book.author"  placeholder="author">
-<label for="title">Book title: </label>
-<input id="title" [(ngModel)]="book.title" placeholder="title">
+<div *ngIf="selectedBook">
+    <h2>{{selectedBook.title}} details</h2>
+    <div><span>id: </span>{{selectedBook.id}}</div>
+
+    <label for="author">Book author: </label>
+    <input id="author" [(ngModel)]="selectedBook.author"  placeholder="author">
+    <label for="title">Book title: </label>
+    <input id="title" [(ngModel)]="selectedBook.title" placeholder="title">
+</div>
+
