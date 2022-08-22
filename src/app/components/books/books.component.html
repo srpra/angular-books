@@ -1,3 +1,13 @@
+<h2>My books</h2>
+<ul class="books">
+    <li *ngFor="let book of books">
+        <button type="button" (click)="onSelect(book)">
+            <div><span>title: </span>{{book.title}}</div>
+            <div><span>author: </span>{{book.author}}</div>
+        </button>
+    </li>
+</ul>
+
 <h2>{{book.title}} details</h2>
 <h3>id: {{book.id}} </h3>
 <!-- <h3>title: {{book.title}}</h3>
