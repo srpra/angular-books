@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../../book';
-import { BOOKS } from 'src/app/mock-books';
+import { BOOKS } from '../../mock-books';
+import { BookService } from '../../book.service';
+
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
-  styleUrls: ['./books.component.css']
+  styleUrls: ['./books.component.css'],
 })
 export class BooksComponent implements OnInit {
-  // book: Book = {
-  //   id: 1,
-  //   author: 'HBR',
-  //   title: 'HBR at 100',
-  // };
-
-  books=BOOKS;
+  books: Book[] = [];
   selectedBook?: Book;
+
+  constructor(private bookService: BookService) {}
+
+  ngOnInit(): void {
+    this.getBooks();
+  }
 
   onSelect(book: Book): void {
     this.selectedBook = book;
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  getBooks(): void {
+    this.books = this.bookService.getBooks();
   }
-
 }
