@@ -23,6 +23,12 @@ export class BooksComponent implements OnInit {
   // }
 
   getBooks(): void {
-    this.books = this.bookService.getBooks();
+    this.bookService.getBooks().subscribe((books) => (this.books = books));
   }
+  delete(book: Book): void {
+    this.bookService.deleteBook(book.id).subscribe();
+    this.books = this.books.filter((b) => b !== book);
+  }
+
+
 }

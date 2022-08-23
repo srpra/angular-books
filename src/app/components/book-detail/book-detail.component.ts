@@ -23,12 +23,20 @@ export class BookDetailComponent implements OnInit {
 
   getBook(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.book = this.bookService.getBook(id);
+    this.bookService.getBook(id).subscribe((book) => (this.book = book));
   }
+
 
   goBack(): void {
     this.location.back();
   }
+
+  save(): void {
+    if (this.book) {
+      this.bookService.updateBook(this.book).subscribe(() => this.goBack());
+    }
+  }
+
 
 
     // console.log('Our book detail id:', id);
