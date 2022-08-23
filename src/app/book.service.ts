@@ -12,5 +12,12 @@ export class BookService {
     return BOOKS;
   }
 
+  getBook(id: number): Book {
+    // For now, assume that a book with the specified 'id' always exists
+    const book = BOOKS.find((b) => b.id === id)!;
+    return book;
+  }
+
+
 
 }

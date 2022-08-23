@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./book-detail.component.css']
 })
 export class BookDetailComponent implements OnInit {
-  @Input() book?:Book
+  book?:Book
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
@@ -23,8 +23,17 @@ export class BookDetailComponent implements OnInit {
 
   getBook(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('Our book detail id:', id);
+    this.book = this.bookService.getBook(id);
   }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+
+    // console.log('Our book detail id:', id);
+  
+
 
 
 
